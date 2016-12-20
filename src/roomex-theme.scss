@@ -1,0 +1,43 @@
+// Import Angular Material Design components themes
+@import '~@angular/material/core/theming/all-theme';
+
+// Import all App custom components theme.
+@import './app/all-theme';
+
+// Apply Angular Material Design global styles
+@include md-core();
+
+// Default App Custom theme
+$primary: md-palette($md-teal, 500);
+$accent: md-palette($md-amber);
+$warn: md-palette($md-orange);
+$theme: md-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+@include app-components-theme($theme);
+
+.blue-theme {
+	$primary-blue-theme: md-palette($md-cyan);
+	$accent-blue-theme: md-palette($md-amber);
+	$warn-blue-theme: md-palette($md-deep-orange);
+	$blue-theme: md-light-theme($primary-blue-theme, $accent-blue-theme, $warn-blue-theme);
+	@include angular-material-theme($blue-theme);
+	@include app-components-theme($blue-theme);
+}
+
+.pink-theme {
+	$primary-pink-theme: md-palette($md-pink, A100);
+	$accent-pink-theme: md-palette($md-blue-grey);
+	$warn-pink-theme: md-palette($md-deep-orange);
+	$pink-theme: md-light-theme($primary-pink-theme, $accent-pink-theme, $warn-pink-theme);
+	@include angular-material-theme($pink-theme);
+	@include app-components-theme($pink-theme);
+}
+
+.grey-dark-theme {
+	$primary-grey-dark-theme: md-palette($md-blue-grey);
+	$accent-grey-dark-theme:  md-palette($md-amber, A200, A100, A400);
+	$warn-grey-dark-theme: md-palette($md-deep-orange);
+	$grey-dark-theme: md-dark-theme($primary-grey-dark-theme, $accent-grey-dark-theme, $warn-grey-dark-theme);
+	@include angular-material-theme($grey-dark-theme);
+	@include app-components-theme($grey-dark-theme);
+}

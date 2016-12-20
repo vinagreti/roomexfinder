@@ -1,3 +1,24 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout fullscreen>
+
+  <md-sidenav #start (open)="closeStartButton.focus()">
+    Start Sidenav.
+    <br>
+    <button md-button #closeStartButton (click)="start.close()">Close</button>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+  	<span>
+  		<button md-icon-button (click)="start.toggle();">
+  			<md-icon fontSet="fa" fontIcon="fa-bars"></md-icon>
+  		</button>
+  		<span>
+  			{{title}}
+  		</span>
+    </span>
+  </md-toolbar>
+
+  <div id="app-content-view">
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-layout>

@@ -1,0 +1,7 @@
+// Import all App custom components theme.
+@import './finder/finder-theme';
+
+// Apply the theme to the app
+@mixin app-components-theme($theme) {
+	@include finder-theme($theme);
+}

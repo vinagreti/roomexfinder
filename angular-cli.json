@@ -15,7 +15,9 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.css",
+        "roomex-theme.scss",
+        "../node_modules/font-awesome/scss/font-awesome.scss"
       ],
       "scripts": [],
       "environments": {

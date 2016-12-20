@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MaterialModule, OVERLAY_PROVIDERS } from '@angular/material';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HomeModule } from './home';
+import { RoomexfinderRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -12,9 +15,14 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HomeModule,
+    HttpModule,
+    MaterialModule.forRoot(),
+    RoomexfinderRoutingModule,
   ],
-  providers: [],
+  providers: [
+    OVERLAY_PROVIDERS
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

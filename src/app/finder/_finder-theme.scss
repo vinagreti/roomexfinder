@@ -1,0 +1,11 @@
+@import '~@angular/material/core/theming/theming';
+
+@mixin finder-theme($theme) {
+
+    $primary: map-get($theme, primary);
+
+    .sidenav-left{
+        background-color: md-color($primary);
+        color: md-color($primary, default-contrast);
+    }
+}
