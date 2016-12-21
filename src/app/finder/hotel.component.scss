@@ -1,0 +1,34 @@
+@import "./../../assets/styles/utilities/colors";
+@import "./../../assets/styles/utilities/sizes";
+
+.stars{
+  color: $yellow;
+}
+
+.location-card-wrapper{
+  margin: auto;
+}
+
+@media #{$small-mobile-screen} {
+  .location-card-wrapper{
+    width: 96%;
+  }
+}
+
+@media #{$large-mobile-screen} {
+  .location-card-wrapper{
+    width: 96%;
+  }
+}
+
+@media #{$tablet-screen} {
+  .location-card-wrapper{
+    width: 75%;
+  }
+}
+
+@media #{$desktop-screen} {
+  .location-card-wrapper{
+    width: 65%;
+  }
+}

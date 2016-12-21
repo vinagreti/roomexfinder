@@ -23,7 +23,8 @@ export class HotelComponent implements OnInit {
     this.routeSubscription = this.route.params.subscribe(params => {
       if(params['id']){
         this.loading = true;
-        this.finderService.search().then((res) => {
+        this.finderService.get(params['id']).then((res) => {
+          console.log(res);
             this.location = res;
             this.loading = false;
         },() => {
