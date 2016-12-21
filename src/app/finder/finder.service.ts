@@ -12,7 +12,18 @@ export class FinderService {
     private http: Http
   ) { }
 
-  private extractBody = (response :Response) => {
+  private extractBodyHotel = (response :Response) => {
+    let body;
+    if (response.json()) {
+      body = response.json();
+      return body;
+    } else {
+      body = response.text()
+      return Promise.reject(body);
+    }
+  }
+
+  private extractBodySearch = (response :Response) => {
     let body;
     if (response.json()) {
       body = response.json().HotelPricingSummaries;
@@ -36,11 +47,20 @@ export class FinderService {
     return Promise.reject(res);
   }
 
+  get = (id) => {
+    let url = this.roomexAipEndpoint + this.hotelEnpoint + id
+    return this.http.get(url)
+     .toPromise()
+     .then(this.extractBodyHotel, this.handleRejection)
+     .catch(this.handleError);
+  }
+
   search = () => {
     let url = this.roomexAipEndpoint + this.searchEndpoint
     return this.http.get(url)
      .toPromise()
-     .then(this.extractBody, this.handleRejection)
+     .then(this.extractBodySearch, this.handleRejection)
      .catch(this.handleError);
   }
+
 }

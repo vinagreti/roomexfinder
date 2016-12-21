@@ -8,7 +8,7 @@
 
     <div *ngFor="let location of locations" class="location-card-wrapper">
       <md-card class="location-card">
-        <img class="click" md-card-image [routerLink]="['/hotel/', location.HotelId]" src="{{location.ThumbnailUrl}}">
+        <img class="click" md-card-image [routerLink]="['/finder/', location.HotelId]" src="{{location.ThumbnailUrl}}">
         <md-card-content>
           <div>
             <md-icon title="Star Rating" class="stars" *ngFor="let star of getStars(location.StarRating)" fontSet="fa" fontIcon="fa-star"></md-icon>

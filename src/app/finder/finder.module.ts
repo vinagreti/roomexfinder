@@ -6,6 +6,7 @@ import { FinderCenterComponent } from './finder-center.component';
 import { FinderRoutingModule } from './finder-routing.module';
 import { FinderService } from './finder.service';
 import { MapModule } from '../map/map.module';
+import { HotelComponent } from './hotel.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { MapModule } from '../map/map.module';
   ],
   declarations: [
     FinderComponent,
-    FinderCenterComponent
+    FinderCenterComponent,
+    HotelComponent
   ],
   providers: [
     FinderService
