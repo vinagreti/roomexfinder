@@ -4,12 +4,9 @@
 
     $primary: map-get($theme, primary);
 
-    #finder-wrapper{
-      padding: 10px;
-
-      .location-card{
-        background-color: md-color($primary);
-        color: md-color($primary, default-contrast);
-      }
+    .location-card{
+      background-color: md-color($primary);
+      color: md-color($primary, default-contrast);
     }
+
 }

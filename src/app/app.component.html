@@ -1,9 +1,13 @@
 <md-sidenav-layout fullscreen>
 
   <md-sidenav #start (open)="closeStartButton.focus()">
-    Start Sidenav.
-    <br>
-    <button md-button #closeStartButton (click)="start.close()">Close</button>
+    <h2 align=center>Menu</h2>
+    <br><br>
+    <button md-button color="accent" type="button" [routerLink]="['/finder']" (click)="start.close()">Go Find</button>
+    <br><br>
+    <button md-button color="accent" type="button" [routerLink]="['/']" (click)="start.close()">Go Home</button>
+    <br><br>
+    <button md-button color="default" type="button" #closeStartButton (click)="start.close()">Close</button>
   </md-sidenav>
 
   <md-toolbar color="primary">
