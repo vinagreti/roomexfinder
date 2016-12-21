@@ -21,12 +21,18 @@ describe('Service: Finder', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should alert whe the respose is not in a known format', inject([FinderService], (service: FinderService) => {
-    expect(service).toBeTruthy();
+  it('should alert whe the response is an error', inject([FinderService], (service: FinderService) => {
+    let promise = service.handleRejection({status:500});
+    promise.then(function(){}, function(reason) {
+       expect(reason).toBe(service.responseMessages.error);
+     });
   }));
 
-  it('should navigate to login page when get a HTTP 401 status code', inject([FinderService], (service: FinderService) => {
-    expect(service).toBeTruthy();
+  it('should ask for login when get a HTTP 401', inject([FinderService], (service: FinderService) => {
+    let promise = service.handleRejection({status:401});
+    promise.then(function(){}, function(reason) {
+       expect(reason).toBe(service.responseMessages.notLogged);
+     });
   }));
 
 });

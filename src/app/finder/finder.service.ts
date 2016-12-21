@@ -7,6 +7,10 @@ export class FinderService {
   roomexAipEndpoint = "http://roomex.mockable.io/"
   searchEndpoint = "locationSearch"
   hotelEnpoint = "hotel/"
+  responseMessages = {
+    error: 'There is a problem calling Roomex Finder API! Please, try again in a few minutes.',
+    notLogged: 'You must be logged to access this!'
+  }
 
   constructor(
     private http: Http
@@ -38,13 +42,9 @@ export class FinderService {
     return Promise.reject(res);
   }
 
-  private handleRejection = (res: any) => {
-    if(res.status == 401){
-      alert('You must be logged to use do this test!')
-    } else {
-      alert('There is a problem calling Roomex Finder API! Please, try again in a few minutes.')
-    }
-    return Promise.reject(res);
+  handleRejection = (res: any) => {
+    let response = res.status == 401 ? this.responseMessages.notLogged : this.responseMessages.error;
+    return Promise.reject(response);
   }
 
   get = (id) => {
