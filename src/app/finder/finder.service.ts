@@ -4,7 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class FinderService {
-  roomexAipEndpoint = "http://roomex.mockable.io/"
+  roomexAipEndpoint = "//roomex.mockable.io/"
   searchEndpoint = "locationSearch"
   hotelEnpoint = "hotel/"
   responseMessages = {
