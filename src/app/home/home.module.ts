@@ -2,6 +2,7 @@ import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,10 @@ import { HomeComponent } from './home.component';
   ],
   imports: [
   	CommonModule,
+    MaterialModule,
     RouterModule
   ]
 })
-export class HomeModule {}
+export class HomeModule {
+  title = "Welcome to Roomex Finder"
+}

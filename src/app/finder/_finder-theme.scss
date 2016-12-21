@@ -4,8 +4,12 @@
 
     $primary: map-get($theme, primary);
 
-    .sidenav-left{
+    #finder-wrapper{
+      padding: 10px;
+
+      .location-card{
         background-color: md-color($primary);
         color: md-color($primary, default-contrast);
+      }
     }
 }

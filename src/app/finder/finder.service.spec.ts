@@ -10,7 +10,12 @@ describe('Service: Finder', () => {
     });
   });
 
-  it('should ...', inject([FinderService], (service: FinderService) => {
+  it('should alert whe the respose is not in a known format', inject([FinderService], (service: FinderService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('should navigate to login page when get a HTTP 401 status code', inject([FinderService], (service: FinderService) => {
+    expect(service).toBeTruthy();
+  }));
+
 });

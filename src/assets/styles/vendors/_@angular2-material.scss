@@ -1,0 +1,26 @@
+@import "./../utilities/colors";
+@import "./../utilities/sizes";
+
+/* Font awesome icons */
+md-icon[fontSet=fa] {
+    font-size: 19px;
+    height: auto;
+}
+
+/* SVG icon inside button */
+md-icon[svgSrc] {
+    position: relative;
+    top: 6px;
+    left: 3px;
+}
+
+/* md-input */
+md-input{
+    width: 100%;
+}
+
+.md-overlay-pane{
+  @media #{$mobile-screen} {
+    width: 96%;
+  }
+}
