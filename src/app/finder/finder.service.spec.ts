@@ -1,12 +1,19 @@
 /* tslint:disable:no-unused-variable */
-
+import {} from 'jasmine';
 import { TestBed, async, inject } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
+
 import { FinderService } from './finder.service';
 
 describe('Service: Finder', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [FinderService]
+      imports: [
+        HttpModule,
+      ],
+      providers: [
+        FinderService,
+      ]
     });
   });
 

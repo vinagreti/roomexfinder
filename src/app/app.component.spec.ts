@@ -1,7 +1,13 @@
 /* tslint:disable:no-unused-variable */
-
+import {} from 'jasmine';
 import { TestBed, async } from '@angular/core/testing';
+import { APP_BASE_HREF } from '@angular/common';
+import { Http } from '@angular/http';
+import { MaterialModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
+import { HomeModule } from './home';
+import { RoomexfinderRoutingModule } from './app-routing.module';
 
 describe('App: Roomexfinder', () => {
   beforeEach(() => {
@@ -9,6 +15,12 @@ describe('App: Roomexfinder', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        HomeModule,
+        MaterialModule.forRoot(),
+        RoomexfinderRoutingModule
+      ],
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
     });
   });
 
@@ -21,13 +33,13 @@ describe('App: Roomexfinder', () => {
   it(`should have as title 'app works!'`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
+    expect(app.title).toEqual('Roomex Finder');
   }));
 
   it('should render title in a h1 tag', async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
+    expect(compiled.querySelector('#page-title').textContent).toContain('Roomex Finder');
   }));
 });
