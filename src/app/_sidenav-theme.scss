@@ -1,0 +1,14 @@
+@import '~@angular/material/core/theming/theming';
+
+@mixin sidenav-theme($theme) {
+
+  $primary: map-get($theme, primary);
+
+  md-sidenav-layout{
+    background-color: white;
+    md-sidenav{
+      background-color: md-color($primary);
+      color: white;
+    }
+  }
+}

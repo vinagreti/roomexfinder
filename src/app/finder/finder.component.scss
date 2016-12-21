@@ -1,0 +1,46 @@
+@import "./../../assets/styles/utilities/colors";
+@import "./../../assets/styles/utilities/sizes";
+
+@media #{$small-mobile-screen} {
+  .location-card-wrapper{
+    width: 96%;
+    margin: auto;
+    margin-bottom: 12px;
+  }
+}
+
+@media #{$large-mobile-screen} {
+  .location-card-wrapper{
+    width: 49%;
+    margin-left: 1%;
+    margin-bottom: 16px;
+  }
+}
+
+@media #{$tablet-screen} {
+  .location-card-wrapper{
+    width: 32%;
+    margin-left: 1%;
+    margin-bottom: 22px;
+  }
+}
+
+@media #{$desktop-screen} {
+  .location-card-wrapper{
+    width: 24%;
+    margin-left: 1%;
+    margin-bottom: 30px;
+  }
+}
+
+.location-card-wrapper{
+  display: inline-block;
+}
+
+.stars{
+  color: $yellow;
+}
+
+#finder-wrapper{
+  padding: 10px;
+}

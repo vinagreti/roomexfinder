@@ -1,0 +1,33 @@
+<div *ngIf="loading">Loading hotel info...</div>
+<div *ngIf="!loading">
+  <div class="location-card-wrapper">
+    <md-card class="location-card">
+      <img class="click" md-card-image [routerLink]="['/finder/', location.HotelId]" src="{{location.Images[0]}}">
+      <md-card-content>
+        <div>
+          <md-icon title="Star Rating" class="stars" *ngFor="let star of getStars(location.StarRating)" fontSet="fa" fontIcon="fa-star"></md-icon>
+          <span class="pull-right">
+            <md-icon class="click" title="See the location in the map" *ngIf="location.GeoCode" (click)="goToMap(location)" fontSet="fa" fontIcon="fa-map"></md-icon>
+            <md-icon title="Breakfast Available" *ngIf="location.BreakfastAvailable" fontSet="fa" fontIcon="fa-coffee"></md-icon>
+            <md-icon title="Dinner Available" *ngIf="location.DinnerAvailable" fontSet="fa" fontIcon="fa-cutlery"></md-icon>
+          </span>
+        </div>
+        <md-card-title title="Hotel Name">{{location.HotelName}}</md-card-title>
+        <p><b>Address: </b> {{location.AddressLines[0]}} - {{location.AddressLines[1]}} - {{location.AddressLines[2]}}</p>
+        <p><b>PostalCode: </b>{{location.PostalCode}}</p>
+        <p><b>CityName: </b>{{location.CityName}}</p>
+        <p><b>CountryCode: </b>{{location.CountryCode}}</p>
+        <p><b>CountryName: </b>{{location.CountryName}}</p>
+        <p><b>Phone: </b>{{location.Phone}}</p>
+        <p><b>Fax: </b>{{location.Fax}}</p>
+        <p title="Description" [innerHTML]="location.HotelDescription"></p>
+      </md-card-content>
+    </md-card>
+  </div>
+
+  <md-grid-list cols="2">
+    <md-grid-tile *ngFor="let image of location.Images">
+      <img src="{{image}}">
+    </md-grid-tile>
+  </md-grid-list>
+</div>

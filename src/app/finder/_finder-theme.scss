@@ -1,0 +1,12 @@
+@import '~@angular/material/core/theming/theming';
+
+@mixin finder-theme($theme) {
+
+    $primary: map-get($theme, primary);
+
+    .location-card{
+      background-color: md-color($primary);
+      color: md-color($primary, default-contrast);
+    }
+
+}

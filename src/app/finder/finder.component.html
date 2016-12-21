@@ -1,0 +1,33 @@
+<div id="finder-wrapper">
+  <div *ngIf="loading">Finding the best fit for you search...</div>
+
+  <div *ngIf="!loading">
+
+    <h1 class="screen-only">Finder</h1>
+    <h2>We have found {{locations.length}} locations matching "{{searchString}}".</h2>
+
+    <div *ngFor="let location of locations" class="location-card-wrapper">
+      <md-card class="location-card">
+        <img class="click" md-card-image [routerLink]="['/finder/', location.HotelId]" src="{{location.ThumbnailUrl}}">
+        <md-card-content>
+          <div>
+            <md-icon title="Star Rating" class="stars" *ngFor="let star of getStars(location.StarRating)" fontSet="fa" fontIcon="fa-star"></md-icon>
+            <span class="pull-right">
+              <md-icon class="click" title="See the location in the map" *ngIf="location.GeoCode" (click)="goToMap(location)" fontSet="fa" fontIcon="fa-map"></md-icon>
+              <md-icon title="Breakfast Available" *ngIf="location.BreakfastAvailable" fontSet="fa" fontIcon="fa-coffee"></md-icon>
+              <md-icon title="Dinner Available" *ngIf="location.DinnerAvailable" fontSet="fa" fontIcon="fa-cutlery"></md-icon>
+            </span>
+          </div>
+          <md-card-title title="Hotel Name">{{location.HotelName}}</md-card-title>
+          <md-card-subtitle>
+            <span title="CountryCode {{location.CountryCode}}">{{location.CountryCode}}</span>
+            <span title="Price in {{location.CurrencyCode}}">{{location.Price | currency:location.CurrencyCode}}</span>
+          </md-card-subtitle>
+          <p title="Address">{{location.Address}}</p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+  </div>
+
+</div>

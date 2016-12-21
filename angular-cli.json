@@ -1,13 +1,13 @@
 {
   "project": {
     "version": "1.0.0-beta.16",
-    "name": "roomexfinder"
+    "name": "roomexfinder.github.io"
   },
   "apps": [
     {
       "root": "src",
       "outDir": "dist",
-      "assets": "assets",
+      "assets": ["assets"],
       "index": "index.html",
       "main": "main.ts",
       "test": "test.ts",
@@ -15,7 +15,9 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.css",
+        "roomex-theme.scss",
+        "../node_modules/font-awesome/scss/font-awesome.scss"
       ],
       "scripts": [],
       "environments": {
@@ -38,7 +40,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "prefixInterfaces": false
   }
 }

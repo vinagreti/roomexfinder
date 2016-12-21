@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.click{
+  cursor: pointer;
+}
+
+.pull-right{
+  text-align: right;
+}
+
+.screen-only{
+  display: none;
+}

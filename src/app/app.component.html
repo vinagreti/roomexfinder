@@ -1,3 +1,28 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout fullscreen>
+
+  <md-sidenav #start (open)="closeStartButton.focus()">
+    <h2 align=center>Menu</h2>
+    <br><br>
+    <button md-button color="accent" type="button" [routerLink]="['/finder']" (click)="start.close()">Go Find</button>
+    <br><br>
+    <button md-button color="accent" type="button" [routerLink]="['/']" (click)="start.close()">Go Home</button>
+    <br><br>
+    <button md-button color="default" type="button" #closeStartButton (click)="start.close()">Close</button>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+  	<span>
+  		<button md-icon-button (click)="start.toggle();">
+  			<md-icon fontSet="fa" fontIcon="fa-bars"></md-icon>
+  		</button>
+  		<span id="page-title">
+  			{{title}}
+  		</span>
+    </span>
+  </md-toolbar>
+
+  <div id="app-content-view">
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-layout>
