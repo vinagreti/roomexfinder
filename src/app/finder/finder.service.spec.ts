@@ -17,6 +17,10 @@ describe('Service: Finder', () => {
     });
   });
 
+  it('should create an instance', inject([FinderService], (service: FinderService) => {
+    expect(service).toBeTruthy();
+  }));
+
   it('should alert whe the respose is not in a known format', inject([FinderService], (service: FinderService) => {
     expect(service).toBeTruthy();
   }));

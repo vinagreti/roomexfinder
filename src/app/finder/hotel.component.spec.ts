@@ -1,4 +1,5 @@
 /* tslint:disable:no-unused-variable */
+import {} from 'jasmine';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -24,8 +25,7 @@ describe('HotelComponent', () => {
       ],
       providers: [
         FinderService,
-        { provide: ActivatedRoute, useValue: { params: Observable.of({id: 123})}
-        }
+        { provide: ActivatedRoute, useValue: { params: Observable.of({id: 123}) } }
       ]
     })
     .compileComponents();
@@ -37,7 +37,7 @@ describe('HotelComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create an instance', () => {
     expect(component).toBeTruthy();
   });
 });
