@@ -1,0 +1,88 @@
+<form id="wrapper" role="form" (ngSubmit)="savePublicData();" [formGroup]="myPublicDataForm">
+  <h1>Feira Orgânica e Ecológica</h1>
+  <h3>Aqui a gente dá uma forcinha pra esses quiridus que cuidam da natureza produzindo produtos orgàicos e agroecológicos. É só dizer do que gosta e onde mora.</h3>
+  <p>Para que possamos fazer isso, precisamos saber se você é um fornecedor, um
+    consumidor ou os dois.</p>
+  <p>Na verdade, grande parte de nós deveria ser ambos, afinal,
+    todo mundo pode ter um vaso de manjericão em casa e, quem sabe, ter um vizinho querendo preparar aquele <a href="/privacy">molho pesto</a>...</p>
+  <p>
+    A Feira Orgânica funciona baseada em sua localização. Pedimos a gentileza de
+    informar alguns dados básicos para fazer parte dessa revolução!</p>
+
+  <div>
+    <h2>Que que tu veio fazê aqui quiridu?</h2>
+    <md-button-toggle-group name="kind" formControlName="kind" color="primary" >
+        <md-button-toggle value="cosumer">Comprar</md-button-toggle>
+        <md-button-toggle value="seller">Vender</md-button-toggle>
+        <md-button-toggle value="both">Os dosx</md-button-toggle>
+        <md-button-toggle value="public">Só esxpiá mesmo...</md-button-toggle>
+    </md-button-toggle-group>
+  </div>
+
+  <div class="address">
+    <h2>Fala um poquinho de ti...</h2>
+    <div>
+      <md-input placeholder="CEP" formControlName="cep"></md-input>
+    </div>
+    <div>
+      <md-input placeholder="Estado" formControlName="state"></md-input>
+    </div>
+    <div>
+      <md-input placeholder="Cidade" formControlName="city"></md-input>
+    </div>
+    <div>
+      <md-input placeholder="Bairro" formControlName="district"></md-input>
+    </div>
+    <div>
+      <md-input placeholder="Telefone" formControlName="phone"></md-input>
+    </div>
+  </div>
+
+  <div *ngIf="myPublicDataForm.controls.kind.value == 'cosumer' || myPublicDataForm.controls.kind.value == 'both'">
+    <h2>Masx me conta, quanto tu come numa semana?</h2>
+    <md-button-toggle-group name="consume" formControlName="consume" color="primary" >
+      <md-button-toggle value="20">Até 20Kg</md-button-toggle>
+      <md-button-toggle value="50">Até 50Kg</md-button-toggle>
+      <md-button-toggle value="200">Até 200Kg</md-button-toggle>
+      <md-button-toggle value="1000 ">Até 1000Kg</md-button-toggle>
+      <md-button-toggle value="10000">Acima de 10Ton</md-button-toggle>
+    </md-button-toggle-group>
+    <div [ngSwitch]="myPublicDataForm.controls.consume.value">
+      <p md-line *ngSwitchCase="20">Normalmente uma pessoa solteira</p>
+      <p md-line *ngSwitchCase="50">Uma família pequena ou um escritório...</p>
+      <p md-line *ngSwitchCase="200">Família grande</p>
+      <p md-line *ngSwitchCase="1000">Restaurantes de pequeno e grande porte, escolas, eventos...</p>
+      <p md-line *ngSwitchCase="10000">Restaurantes de grande porte, eventos, exportadores, ...</p>
+    </div>
+    {{myPublicDataForm.controls.consume.value}}
+  </div>
+
+  <div class="manufacturers" *ngIf="myPublicDataForm.controls.kind.value == 'seller' || myPublicDataForm.controls.kind.value == 'both'">
+    <h2>Aí sim hein? Produzindo orgânicos. Coisa linda!!! Explica isso direito...</h2>
+    <div>
+      <md-input placeholder="Site" formControlName="site"></md-input>
+    </div>
+    <div>
+      <h3>E quanto tu produz?</h3>
+      <md-button-toggle-group name="production" formControlName="production" color="primary" >
+          <md-button-toggle value="20">Até 20Kg</md-button-toggle>
+          <md-button-toggle value="100">Até 100Kg</md-button-toggle>
+          <md-button-toggle value="1000">Até 1Ton</md-button-toggle>
+          <md-button-toggle value="10000">Até 10Ton</md-button-toggle>
+          <md-button-toggle value="100000">Acima de 10Ton</md-button-toggle>
+      </md-button-toggle-group>
+      <div [ngSwitch]="myPublicDataForm.controls.production.value">
+        <p md-line *ngSwitchCase="20">Possui alguns vasos, quem sabe uma hortinha...</p>
+        <p md-line *ngSwitchCase="100">Tem um pé de laranja ou de amoras...</p>
+        <p md-line *ngSwitchCase="1000">Pequeno agricultor urbano, ou possui muitas árvores frutíferas...</p>
+        <p md-line *ngSwitchCase="10000">Produtores e cooperativas de pequeno porte...</p>
+        <p md-line *ngSwitchCase="100000">Produtores e cooperativas de grande porte...</p>
+      </div>
+    </div>
+  </div>
+
+  <button md-button color="accent" type="submit">Salvar</button>
+  <br>
+  <p>*Estas informações são públicas e ajudam a Feira Orgânica e seus usuários a localizarem dados mais relevantes. Para saber mais, acesse <a href="/privacy">nossa política de privacidade</a></p>
+
+</form>
