@@ -1,0 +1,12 @@
+<h1>
+  Artigos
+  <button md-icon-button color="primary" (click)="addArticle()">
+    <md-icon fontSet="fa" fontIcon="fa-plus"></md-icon>
+  </button>
+</h1>
+
+<ul>
+  <li *ngFor="let article of articles | async">
+    {{ article.name }}
+  </li>
+</ul>

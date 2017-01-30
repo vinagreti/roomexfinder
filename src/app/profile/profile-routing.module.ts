@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MyPublicDataComponent } from './my-public-data.component';
+import { ProfileComponent } from './profile.component';
 
 const routes: Routes = [
-  { path: '', component: MyPublicDataComponent }
+  { path: '', component: ProfileComponent }
 ];
 
 @NgModule({
@@ -12,4 +12,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class MyPublicDataRoutingModule { }
+export class ProfileRoutingModule { }

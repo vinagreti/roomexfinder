@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { MyPublicDataComponent } from './my-public-data.component';
+import { ArticleDetailComponent } from './article-detail.component';
 
-describe('Component: MyPublicData', () => {
+describe('Component: ArticleDetail', () => {
   it('should create an instance', () => {
-    let component = new MyPublicDataComponent();
+    let component = new ArticleDetailComponent();
     expect(component).toBeTruthy();
   });
 });

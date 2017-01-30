@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
 
 export class HomeComponent {
 	constructor(){}
-	title = 'Home';
+	title = 'Feira Orgâniva e Ecológica';
 }

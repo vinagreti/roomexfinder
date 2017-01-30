@@ -17,6 +17,4 @@ import { MaterialModule } from '@angular/material';
     RouterModule
   ]
 })
-export class HomeModule {
-  title = "Welcome to Roomex Finder"
-}
+export class HomeModule {}

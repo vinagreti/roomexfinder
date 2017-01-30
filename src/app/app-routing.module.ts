@@ -4,7 +4,10 @@ import { HomeComponent } from './home'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'finder', loadChildren: './finder/finder.module#FinderModule' },
+  { path: 'articles', loadChildren: './article/article.module#ArticleModule' },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
+  { path: 'map', loadChildren: './map/map.module#MapModule' },
 ];
 
 @NgModule({

@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MdButtonModule, MdButtonToggleModule, MdSliderModule, MdIconModule, MdInputModule, MdUniqueSelectionDispatcher } from '@angular/material';
-import { MyPublicDataComponent } from './my-public-data.component';
-import { MyPublicDataRoutingModule } from './my-public-data-routing.module';
-import { MyPublicDataService } from './my-public-data.service';
+import { ProfileComponent } from './profile.component';
+import { ProfileRoutingModule } from './profile-routing.module';
+import { ProfileService } from './profile.service';
+import { JsonStorageModule } from './../json-storage/json-storage.module';
+import { AuthService } from './../auth/shared/auth.service';
 
 @NgModule({
   imports: [
@@ -15,18 +17,20 @@ import { MyPublicDataService } from './my-public-data.service';
     MdSliderModule,
     MdIconModule,
     MdInputModule,
-    MyPublicDataRoutingModule,
-    ReactiveFormsModule
+    ProfileRoutingModule,
+    ReactiveFormsModule,
+    JsonStorageModule
   ],
   exports: [
-    MyPublicDataComponent
+    ProfileComponent
   ],
   declarations: [
-    MyPublicDataComponent
+    ProfileComponent
   ],
   providers: [
     MdUniqueSelectionDispatcher,
-    MyPublicDataService
+    ProfileService,
+    AuthService
   ]
 })
-export class MyPublicDataModule { }
+export class ProfileModule { }

@@ -4,24 +4,28 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule, OVERLAY_PROVIDERS } from '@angular/material';
 import { NgModule } from '@angular/core';
+import { AngularFireModule, AuthMethods,  AuthProviders } from "angularfire2";
 
 import { AppComponent } from './app.component';
 import { HomeModule } from './home';
 import { RoomexfinderRoutingModule } from './app-routing.module';
-import { MyPublicDataModule } from './my-public-data/my-public-data.module';
-import { MapModule } from './map/map.module';
+
+// App environment conf
+import { environment } from './../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig,{
+      provider: AuthProviders.Google,
+      method: AuthMethods.Popup
+    }),
     BrowserModule,
     FormsModule,
     HomeModule,
     HttpModule,
-    MyPublicDataModule,
-    MapModule,
     MaterialModule.forRoot(),
     RoomexfinderRoutingModule,
   ],
