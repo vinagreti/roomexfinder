@@ -5,15 +5,15 @@
     <br><br>
     <button md-button color="accent" type="button" [routerLink]="['/finder']" (click)="start.close()">Go Find</button>
     <br><br>
-    <button md-button color="accent" type="button" [routerLink]="['/']" (click)="start.close()">Go Home</button>
-    <br><br>
-    <button md-button color="accent" type="button" [routerLink]="['/articles']" (click)="start.close()">Articles</button>
-    <br><br>
-    <button md-button color="accent" type="button" [routerLink]="['/auth']" (click)="start.close()">Auth</button>
-    <br><br>
-    <button md-button color="accent" type="button" [routerLink]="['/profile']" (click)="start.close()">Profile</button>
-    <br><br>
     <button md-button color="accent" type="button" [routerLink]="['/']" (click)="start.close()">Home</button>
+    <br><br>
+    <button md-button color="accent" type="button" *ngIf="user" [routerLink]="['/articles']" (click)="start.close()">Articles</button>
+    <br><br>
+    <button md-button color="accent" type="button" *ngIf="!user" [routerLink]="['/auth']" (click)="start.close()">Auth</button>
+    <br><br>
+    <button md-button color="accent" type="button" *ngIf="user" [routerLink]="['/profile']" (click)="start.close()">Profile</button>
+    <br><br>
+    <button md-button color="accent" type="button" *ngIf="user" [routerLink]="['/auth/logout']" (click)="start.close()">Logout</button>
     <br><br>
     <button md-button color="default" type="button" #closeStartButton (click)="start.close()">Close</button>
   </md-sidenav>
@@ -24,7 +24,7 @@
   			<md-icon fontSet="fa" fontIcon="fa-bars"></md-icon>
   		</button>
   		<span id="page-title">
-  			{{title}}
+  			<a class="toolbar-brand" [routerLink]="['/']">{{title}}</a>
   		</span>
     </span>
   </md-toolbar>

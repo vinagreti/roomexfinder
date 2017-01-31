@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
 
   profileForm: FormGroup;
   profile: Profile = new Profile({});
+  loadingData: boolean = true;
 
   constructor(
     private profileService: ProfileService,
@@ -26,8 +27,10 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile = () => {
+    this.loadingData = true;
     this.profileService.profile.subscribe(profile => {
       if(profile){
+        this.loadingData = false;
         this.profile = profile;
       } else {
         console.log('Sem profile setado. Cria profile.')
@@ -52,7 +55,7 @@ export class ProfileComponent implements OnInit {
   saveProfile = () => {
     let profile = this.profileForm.value;
     this.profileService.save(this.profileForm.value)
-      .then(() => {
+      .then((_profile) => {
         this.profile = profile;
       });
   }

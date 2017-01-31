@@ -1,10 +1,10 @@
 <div id="home-wrapper">
 	<h1>{{title}}</h1>
 	<p>Go find you perfect accomodation!</p>
-	<button md-raised-button color="accent" type="button" [routerLink]="['/finder']">Busca</button>
-	<button md-raised-button color="accent" type="button" [routerLink]="['/']">Go Home</button>
-	<button md-raised-button color="accent" type="button" [routerLink]="['/articles']">Articles</button>
-	<button md-raised-button color="accent" type="button" [routerLink]="['/auth']">Auth</button>
-	<button md-raised-button color="accent" type="button" [routerLink]="['/profile']">Profile</button>
 	<button md-raised-button color="accent" type="button" [routerLink]="['/']">Home</button>
+	<button md-raised-button color="accent" type="button" [routerLink]="['/finder']">Busca</button>
+	<button md-raised-button color="accent" type="button" [routerLink]="['/articles']">Articles</button>
+	<button md-raised-button color="primary" type="button" *ngIf="!user" [routerLink]="['/auth']">Auth</button>
+	<button md-raised-button color="accent" type="button" *ngIf="user" [routerLink]="['/profile']">Profile</button>
+	<button md-raised-button color="warn" type="button" *ngIf="user" [routerLink]="['/auth/logout']">Logout</button>
 </div>

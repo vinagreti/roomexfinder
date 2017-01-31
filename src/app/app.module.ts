@@ -9,7 +9,7 @@ import { AngularFireModule, AuthMethods,  AuthProviders } from "angularfire2";
 import { AppComponent } from './app.component';
 import { HomeModule } from './home';
 import { RoomexfinderRoutingModule } from './app-routing.module';
-
+import { AuthService } from './auth/shared/auth.service';
 // App environment conf
 import { environment } from './../environments/environment';
 
@@ -30,7 +30,8 @@ import { environment } from './../environments/environment';
     RoomexfinderRoutingModule,
   ],
   providers: [
-    OVERLAY_PROVIDERS
+    OVERLAY_PROVIDERS,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

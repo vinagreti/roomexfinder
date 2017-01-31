@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { environment } from './../../../environments/environment';
 import { BehaviorSubject } from 'rxjs';
 import { FirebaseObjectObservable } from 'angularfire2';
-import { JsonStorageService } from './../../json-storage/json-storage.service';
 
 @Injectable()
 export class AuthService {
@@ -12,11 +11,9 @@ export class AuthService {
 
   constructor( 
     private af: AngularFire,
-    private jsonStorageService: JsonStorageService
   ) {
-    this.subscribeNgFire();
     this.user = new BehaviorSubject<any>({});
-    this.user.subscribe(user => this.jsonStorageService.set('user', user));
+    this.subscribeNgFire();
   }
 
   private subscribeNgFire(){
@@ -61,6 +58,7 @@ export class AuthService {
 
   logout = () => {
     this.af.auth.logout();
+    this.user.next(undefined);
   }
 
 }

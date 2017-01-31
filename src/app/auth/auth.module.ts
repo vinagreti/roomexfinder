@@ -9,7 +9,6 @@ import { AuthCenterComponent }    from './auth-center.component';
 import { AuthService } from './shared/auth.service';
 
 import { AuthRoutingModule } from './auth.routing.module';
-import { JsonStorageService } from './../json-storage/json-storage.service';
 
 @NgModule({
   imports:[
@@ -31,7 +30,6 @@ import { JsonStorageService } from './../json-storage/json-storage.service';
   ],
   providers: [
     AuthService,
-    JsonStorageService
   ]
 })
 export class AuthModule {}
